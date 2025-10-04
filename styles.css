@@ -1,0 +1,158 @@
+/* static/styles.css */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', sans-serif;
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+  color: #fff;
+  overflow-x: hidden;
+}
+
+.bg-blur {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(6px);
+  z-index: -1;
+}
+
+header {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100%;
+  max-width: 1100px;
+  padding: 1.5rem 2rem;
+  z-index: 1000;
+  text-align: center;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border-radius: 20px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+
+h1, h2 {
+  margin-bottom: 1rem;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.6);
+}
+
+.glass-card {
+  max-width: 1100px;
+  width: 90vw;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(12px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.2);
+}
+
+.input-wrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.input-wrapper input {
+  flex: 1;
+  padding: 0.75rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+.action-buttons button {
+  padding: 0.75rem 1rem;
+  font-size: 1.2rem;
+  border: none;
+  border-radius: 12px;
+  background: #2193b0;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.action-buttons button:hover {
+  background: #6dd5ed;
+}
+
+.result-box, .table-container {
+  margin-top: 1.5rem;
+}
+
+.filter-controls {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.filter-controls select,
+.filter-controls input {
+  padding: 0.6rem;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+}
+
+.filter-controls button {
+  padding: 0.6rem 1rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 10px;
+  background: #6a11cb;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.filter-controls button:hover {
+  background: #2575fc;
+}
+
+.table-container table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 1rem;
+}
+
+.table-container th, .table-container td {
+  padding: 0.8rem;
+  border-bottom: 1px solid #ccc;
+  text-align: left;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+}
+
+.table-container th {
+  background: rgba(255, 255, 255, 0.15);
+  font-weight: bold;
+}
+
+body.section-0 {
+  background: linear-gradient(to right, #0f2027, #203a43, #2c5364);
+}
+
+body.section-1 {
+  background: linear-gradient(to right, #3a1c71, #d76d77, #ffaf7b);
+}
+
+@keyframes fadeInSlide {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.content-section.active {
+  animation: fadeInSlide 0.5s ease forwards;
+}

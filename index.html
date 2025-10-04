@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ta">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TamProGen — Tamil Proverb Generator</title>
+  <link rel="stylesheet" href="static/styles.css" />
+  <link href='https://cdn.boxicons.com/fonts/basic/boxicons.min.css' rel='stylesheet'>
+  <script src="https://cdn.plot.ly/plotly-latest.min.js"></script>
+  <style>
+    
+  .carousel-container {
+    perspective: 1200px;
+    overflow-y: hidden;
+    height: 100vh;
+    padding-top: 150px;
+  }
+
+  .carousel {
+    display: flex;
+    flex-direction: column;
+    transform-style: preserve-3d;
+    transition: transform 1s ease;
+    height: 100%
+  }
+
+  .content-section {
+    min-height: 100vh;
+    flex-shrink: 0;
+    transition: transform 0.6s ease;
+  }
+  
+</style>
+
+</head>
+<body>
+  <!-- Background Blur Layer -->
+  <div class="bg-blur"></div>
+
+  <header class="glass-card">
+    <h1>TamProXGen — Tamil Proverb Explanation Generator</h1>
+  </header>
+
+  <div class="carousel-container">
+    <div id="carousel" class="carousel">
+      <!-- Proverb Generator (Glass Card) -->
+      <section id="generator" class="content-section active glass-card">
+        <h2> Proverb Generator</h2>
+        <div class="input-wrapper">
+          <input type="text" id="searchInput" placeholder="Enter Tamil proverb or transliteration..." />
+          <div class="action-buttons">
+            <button class="action" id="searchBtn"><i class='bx  bx-search'></i></button>
+            <button class="action" id="micBtn"><i class='bx  bx-microphone-big'></i></button>
+          </div>
+        </div>
+        <div id="searchResults" class="result-box"></div>
+      </section>
+
+      <!-- Filter Section (Glass Card) -->
+      <section id="filter" class="content-section glass-card">
+        <h2> Filter Proverbs</h2>
+        <div class="filter-controls">
+          <select id="filterType">
+            <option value="All">All</option>
+            <option value="Literal">Literal</option>
+            <option value="Figurative">Figurative</option>
+          </select>
+          <input type="text" id="filterKeyword" placeholder="Enter keyword..." />
+          <button class="action" id="filterBtn">Apply Filter</button>
+        </div>
+        <div id="filterResults" class="table-container"></div>
+      </section>
+    </div>
+  </div>
+
+  <script src="static/script.js"></script>
+  <script>
+  let currentIndex = 0;
+  const sections = document.querySelectorAll(".content-section");
+  const carousel = document.getElementById("carousel");
+
+  function updateBackground() {
+    document.body.className = `section-${currentIndex}`;
+  }
+
+  window.addEventListener("wheel", (e) => {
+    if (e.deltaY > 0 && currentIndex < sections.length - 1) {
+      currentIndex++;
+    } else if (e.deltaY < 0 && currentIndex > 0) {
+      currentIndex--;
+    }
+    carousel.style.transform = `translateY(-${currentIndex * 100}vh)`;
+    updateBackground();
+  });
+
+  // Initialize background for first section
+  updateBackground();
+</script>
+
+</body>
+</html>
